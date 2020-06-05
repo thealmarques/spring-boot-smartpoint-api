@@ -30,13 +30,13 @@ public class Employee implements Serializable {
     @Column(name = "person_id", nullable = false)
     private String personID;
 
-    @Column(name = "price_hour", nullable = false)
+    @Column(name = "price_hour")
     private BigDecimal pricePerHour;
 
-    @Column(name = "hours_day", nullable = false)
+    @Column(name = "hours_day")
     private Float hoursPerDay;
 
-    @Column(name = "lunch_hours", nullable = false)
+    @Column(name = "lunch_hours")
     private Float lunchHours;
 
     @Enumerated(EnumType.STRING)
@@ -46,7 +46,7 @@ public class Employee implements Serializable {
     @Column(name = "creation_date", nullable = false)
     private Date creationDate;
 
-    @Column(name = "creation_date", nullable = false)
+    @Column(name = "modified_date", nullable = false)
     private Date modifiedDate;
 
     @ManyToOne(fetch = FetchType.EAGER)

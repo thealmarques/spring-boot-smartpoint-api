@@ -19,17 +19,17 @@ public class Launch implements Serializable {
     @Column(name = "date", nullable = false)
     private Date date;
 
-    @Column(name = "description", nullable = false)
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "location", nullable = false)
+    @Column(name = "location")
     private String location;
 
     @Column(name = "creation_date", nullable = false)
-    private String creationDate;
+    private Date creationDate;
 
     @Column(name = "modified_date", nullable = false)
-    private String modifiedDate;
+    private Date modifiedDate;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "type", nullable = false)
@@ -70,19 +70,19 @@ public class Launch implements Serializable {
         this.location = location;
     }
 
-    public String getCreationDate() {
+    public Date getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(String creationDate) {
+    public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
 
-    public String getModifiedDate() {
+    public Date getModifiedDate() {
         return modifiedDate;
     }
 
-    public void setModifiedDate(String modifiedDate) {
+    public void setModifiedDate(Date modifiedDate) {
         this.modifiedDate = modifiedDate;
     }
 
@@ -100,5 +100,17 @@ public class Launch implements Serializable {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        this.modifiedDate = new Date();
+    }
+
+    @PrePersist
+    public void prePersist() {
+        final Date now = new Date();
+        this.creationDate = now;
+        this.modifiedDate = now;
     }
 }
