@@ -13,7 +13,9 @@ public class PasswordUtils {
      * @return hashed password
      */
     public static String generateBCrypt(String password) {
-        assert password != null;
+        if (password == null) {
+            return null;
+        }
 
         log.info("Generating password hash...");
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
