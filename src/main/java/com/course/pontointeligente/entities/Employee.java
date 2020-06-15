@@ -100,8 +100,8 @@ public class Employee implements Serializable {
     }
 
     @Transient
-    public Optional<BigDecimal> getPricePerHourOpt(BigDecimal priceHour) {
-        return Optional.ofNullable(priceHour);
+    public Optional<BigDecimal> getPricePerHourOpt() {
+        return Optional.ofNullable(this.pricePerHour);
     }
 
     public void setPricePerHour(BigDecimal pricePerHour) {
@@ -113,8 +113,8 @@ public class Employee implements Serializable {
     }
 
     @Transient
-    public Optional<Float> getHoursPerDay(Float hoursDay) {
-        return Optional.ofNullable(hoursDay);
+    public Optional<Float> getHoursPerDayOpt() {
+        return Optional.ofNullable(this.hoursPerDay);
     }
 
     public void setHoursPerDay(Float hoursPerDay) {
@@ -126,7 +126,7 @@ public class Employee implements Serializable {
     }
 
     @Transient
-    public Optional<Float> getLunchHours(Float lunchHours) {
+    public Optional<Float> getLunchHoursOpt() {
         return Optional.ofNullable(lunchHours);
     }
 

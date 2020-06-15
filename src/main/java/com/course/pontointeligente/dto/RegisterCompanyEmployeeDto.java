@@ -4,8 +4,9 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.util.Optional;
 
-public class RegisterCompanyAdminDto {
+public class RegisterCompanyEmployeeDto {
     private Long id;
 
     @NotEmpty(message = "Name can't be empty.")
@@ -23,9 +24,11 @@ public class RegisterCompanyAdminDto {
     @NotEmpty(message = "PersonID cant' be empty.")
     private String personID;
 
-    @NotEmpty(message = "Social reason can't be empty.")
-    @Length(min = 5, max = 200, message = "Social reason should contain between 5 and 200 characters.")
-    private String socialReason;
+    private Optional<String> priceHour;
+
+    private Optional<String> hoursPerDay;
+
+    private Optional<String> hoursLunch;
 
     @NotEmpty(message = "CompanyID can't be empty.")
     private String companyID;
@@ -70,12 +73,28 @@ public class RegisterCompanyAdminDto {
         this.personID = personID;
     }
 
-    public String getSocialReason() {
-        return socialReason;
+    public Optional<String> getPriceHour() {
+        return priceHour;
     }
 
-    public void setSocialReason(String socialReason) {
-        this.socialReason = socialReason;
+    public void setPriceHour(Optional<String> priceHour) {
+        this.priceHour = priceHour;
+    }
+
+    public Optional<String> getHoursPerDay() {
+        return hoursPerDay;
+    }
+
+    public void setHoursPerDay(Optional<String> hoursPerDay) {
+        this.hoursPerDay = hoursPerDay;
+    }
+
+    public Optional<String> getHoursLunch() {
+        return hoursLunch;
+    }
+
+    public void setHoursLunch(Optional<String> hoursLunch) {
+        this.hoursLunch = hoursLunch;
     }
 
     public String getCompanyID() {
@@ -88,13 +107,15 @@ public class RegisterCompanyAdminDto {
 
     @Override
     public String toString() {
-        return "RegisterCompanyAdminDto{" +
+        return "RegisterCompanyEmployeeDto{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", personID='" + personID + '\'' +
-                ", socialReason='" + socialReason + '\'' +
+                ", priceHour=" + priceHour +
+                ", hoursPerDay=" + hoursPerDay +
+                ", hoursLunch=" + hoursLunch +
                 ", companyID='" + companyID + '\'' +
                 '}';
     }
