@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/thealmarques/spring-boot-smartpoint-api.svg?token=7aSoHWUPqHZg4AGkquDJ&branch=master)](https://travis-ci.com/thealmarques/spring-boot-smartpoint-api)
-# Smart Entry Point
+# Smart Entry Point API
 RESTful API written in spring boot for a specific use case project.
 
 # Use case
